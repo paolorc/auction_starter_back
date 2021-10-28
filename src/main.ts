@@ -34,7 +34,7 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter());
 
   await app.listen(
-    configService.get<number>('http.port'),
+    process.env.PORT || configService.get<string>('http.port'),
     configService.get<string>('http.host'),
   );
   Logger.debug(`Application running on: ${await app.getUrl()}`);
