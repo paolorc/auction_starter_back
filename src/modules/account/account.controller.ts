@@ -2,6 +2,7 @@ import {
   Body,
   ClassSerializerInterceptor,
   Controller,
+  Get,
   Param,
   Post,
   UseGuards,
@@ -31,8 +32,8 @@ export class AccountController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Post('/:id')
+  @Get('/:id')
   findById(@Param('id') id: string) {
-    return id;
+    return this.accountService.findById(id);
   }
 }

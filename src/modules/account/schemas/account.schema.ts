@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, ObjectId } from 'mongoose';
+import { Document, ObjectId, model } from 'mongoose';
 import { Transform } from 'class-transformer';
 
 import { AccountStatus } from '../types/enum/accountStatus';
@@ -40,7 +40,7 @@ export type ProfileDocument = Profile & Document;
 
 export type AccountDocument = Account & Document;
 
-@Schema({ timestamps: true })
+@Schema({ timestamps: { createdAt: true, updatedAt: true } })
 export class Account {
   @Transform(({ value }) => value.toString())
   _id: ObjectId;

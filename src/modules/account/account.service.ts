@@ -17,10 +17,11 @@ export class AccountService {
 
   async login(email: string, password: string) {
     // TODO: Implement real validation by encryption of password and hashing
-    const account = await this.findByEmail(email);
+    const account = await this.accountModel.findOne({ email });
     if (account.password !== password) {
       throw new Error('Invalid Account');
     }
+
     return {
       account: {
         firstName: account.firstName,
@@ -38,12 +39,19 @@ export class AccountService {
   }
 
   async findByEmail(email: string): Promise<Account> {
-    const account = await this.accountModel.findOne({ email }).lean();
+    const account = await this.accountModel
+      .findOne({ 'profile.email': email })
+      .select('-password')
+      .lean();
 
     if (!account) {
       throw new Error('Invalid Account');
     }
 
     return account;
+  }
+
+  findById(id: string): Promise<Account> {
+    return this.accountModel.findById(id).select('-password').lean().exec();
   }
 }
