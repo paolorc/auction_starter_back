@@ -20,7 +20,6 @@ import LoggerModule from 'logger/logger.module';
         autoLoadEntities: true,
         synchronize: false,
         entities: ['dist/**/*.entity{.ts, .js}'],
-        migrations: ['dist/migrations/*{.ts,.js}'],
         debug: false,
       }),
     }),

@@ -1,63 +1,33 @@
-## Description
+# Auctions backend App!
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Web app based on react and nestJs as the main framework for the backend.
+React let us create web applications in a manner that we control how to scale and develop our applications. \
+NestJs let us to have a small setup boilerplate to start adding some logic and code without starting from zero. Also it has the capabilities to be scalable, modularized and comes with typescript by default!.
 
-## Installation
+### Requirements
 
-```bash
-$ npm install
-```
+- node > 14.18.0
+- npm > 6.14
+- a cluster created in Atlas mongo db and complete the variable inside `.env`
 
-## Description
+### To Run the project follow the next commands
 
-```
-This is the backend project from a web portal to allow current passengers users from a taxi app, to connect and see their rides to have the capability to select and send it to be invoiced.
-There are passengers user where are allowed to connect and see their rides, create invoices, see the status of their invoicing process.
-There are admin users who can see all invoices created and can download it to later send it to our national regulator of taxes.
-```
+- clone the repository into your computer
+- create a `.env` in the root project directory with the same values as `.env.example` example
+- run `npm install` from the root project directory
+- And now your services are running maybe in `localhost:3000` if host and ports weren't changed, have some fun!
 
-## Tech Stack:
+### Login as a passenger
 
-REST, to develop our API's. \
-We used `mariadb` as our main database as we want to have strong relations between tables and also have the possibility to manage transactions procedures.\
-We used docker to have our app containerized and ready to deploy.\
-We used node with NestJS for our amazing development.
+- username: `paolo.reyes.2911@gmail.com`
+- password: changeIt
 
-## Before running the app
+- username: `renzo.rojas@thebeat.co`
+- password: changeIt
 
-- We recommend to create your own `.env` file in root directory of the `api` project with the values from `.env.example`.
-- Make sure you have running a mariadb database with a schema name of `invo_passenger`
+### Login as an admin
 
-## Consideration from this project
+- username: `admin@thebeat.co`
+- password: changeIt!
 
-I put tons of effort in code quality, structure, separations of concerns, decoupled files and dependencies to give a easy to read code and simple incoming changes in near future.
-
-## Running the app
-
-All in port: `3000`
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-Due to a bit of lack of time to develop every unit test and coverage, I made some integration tests that are the starting point to continue adding more on that way.
-
-```bash
-# e2e tests
-$ npm run test:e2e
-```
-
-## TODO
-
-- This is using a basic `JWT` integration and we are not hashing our password at this time, I will take some time to add this small but big security thing when I get a chance later =)
-- Add more unit testing, but for now we are fine covering core logic.
-- what else? Maybe new features like rides expenses by month or whatever range of dates.
+Give me some stars!
