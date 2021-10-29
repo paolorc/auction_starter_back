@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, ObjectId, model } from 'mongoose';
+import { Document, ObjectId } from 'mongoose';
 import { Transform } from 'class-transformer';
 
 import { AccountStatus } from '../types/enum/accountStatus';
