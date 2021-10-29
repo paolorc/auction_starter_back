@@ -40,7 +40,8 @@ export class AccountService {
     const account = await this.accountModel
       .findOne({ 'profile.email': email })
       .select('-password')
-      .lean();
+      .lean()
+      .exec();
 
     if (!account) {
       throw new Error('Invalid Account');

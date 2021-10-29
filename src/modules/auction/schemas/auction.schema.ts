@@ -5,7 +5,19 @@ import { Transform, Type } from 'class-transformer';
 import { Account } from 'modules/account/schemas/account.schema';
 import { AuctionStatus } from '../types/enum/auctionStatus';
 
-export type AuctionDocument = Auction & mongoose.Document;
+export interface IAuction extends Document {
+  title: string;
+  description: string;
+  category: string;
+  owner: Account;
+  appliers: Account[];
+  showcased: boolean;
+  winner: Account;
+  finishedAt?: Date;
+  status: AuctionStatus;
+  createdAt: Date;
+  updatedAt?: Date;
+}
 
 @Schema({ timestamps: true })
 export class Auction {
@@ -36,25 +48,20 @@ export class Auction {
   @Type(() => Account)
   winner: Account;
 
-  @Prop({ type: 'timestamp' })
-  finishedAt: Date;
+  @Prop()
+  finishedAt?: Date;
 
-  @Prop({ type: 'enum', enum: AuctionStatus, default: AuctionStatus.Active })
+  @Prop({ enum: AuctionStatus, default: AuctionStatus.Active })
   status: AuctionStatus;
+
+  @Prop()
+  createdAt: Date;
+
+  @Prop()
+  updatedAt: Date;
 }
 
 const AuctionSchema = SchemaFactory.createForClass(Auction);
 
-AuctionSchema.virtual('owner', {
-  ref: 'Account',
-  localField: '_id',
-  foreignField: 'owner',
-});
-
-AuctionSchema.virtual('winner', {
-  ref: 'Account',
-  localField: '_id',
-  foreignField: 'winner',
-});
-
+export type AuctionDocument = Auction & mongoose.Document;
 export { AuctionSchema };

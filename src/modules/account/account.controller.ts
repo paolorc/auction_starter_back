@@ -15,7 +15,7 @@ import { JwtAuthGuard } from './guards/jwtAuth.guard';
 import { Account } from './schemas/account.schema';
 import { LoginDTO } from './types/dto/login.dto';
 
-@Controller('account')
+@Controller('accounts')
 @UseInterceptors(ClassSerializerInterceptor)
 export class AccountController {
   constructor(private readonly accountService: AccountService) {}
