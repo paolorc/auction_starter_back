@@ -55,8 +55,8 @@ export class AuctionController {
   @HttpCode(HttpStatus.OK)
   @UseGuards(JwtAuthGuard)
   @Get('/')
-  findAll(@Query() params: AuctionDTO) {
-    return this.auctionService.fetchAll(params);
+  fecthAll(@Auth() account: Account, @Query() params: AuctionDTO) {
+    return this.auctionService.fetchAll(params, account);
   }
 
   @HttpCode(HttpStatus.OK)

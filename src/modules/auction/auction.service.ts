@@ -57,7 +57,7 @@ export class AuctionService {
     );
   }
 
-  fetchAll(params: AuctionDTO) {
+  fetchAll(params: AuctionDTO, account?: Account) {
     const status = params.status
       ? [params.status]
       : [AuctionStatus.Active, AuctionStatus.Finished];
@@ -67,6 +67,7 @@ export class AuctionService {
       status: {
         $in: status,
       },
+      ...(params.applied ? { appliers: { $in: [account] } } : {}),
       ...(params.winners ? { winner: { $exists: true } } : {}),
     };
 
