@@ -14,11 +14,17 @@ export class AccountService {
   ) {}
 
   async login(email: string, password: string) {
+    console.log(email);
+
     // TODO: Implement real validation by encryption of password and hashing
-    const account = await this.accountModel.findOne({ email });
+    const account = await this.accountModel
+      .findOne({ 'profile.email': email })
+      .lean();
     if (account.password !== password) {
       throw new Error('Invalid Account');
     }
+
+    console.log(account);
 
     return {
       account: {
