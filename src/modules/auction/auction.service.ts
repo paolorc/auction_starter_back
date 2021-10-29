@@ -156,6 +156,7 @@ export class AuctionService {
       {
         winner,
         status: AuctionStatus.Finished,
+        finishedAt: new Date(),
       },
       { new: true, lean: true },
     );
