@@ -22,5 +22,6 @@ import { JWTStrategy } from './strategies/jwt.strategy';
   ],
   controllers: [AccountController],
   providers: [AccountService, JWTStrategy],
+  exports: [MongooseModule],
 })
 export default class AccountModule {}
