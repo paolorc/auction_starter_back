@@ -1,14 +1,19 @@
 # Auctions backend App!
 
-Web app based on react and nestJs as the main framework for the backend.
-React let us create web applications in a manner that we control how to scale and develop our applications. \
-NestJs let us to have a small setup boilerplate to start adding some logic and code without starting from zero. Also it has the capabilities to be scalable, modularized and comes with typescript by default!.
+NestJS backend application for the web app Auction Now!
+
+## Stack
+
+- MongoDB
+- Typescript
+- NodeJS
+- Atlas Cloud
 
 ### Requirements
 
 - node > 14.18.0
 - npm > 6.14
-- a cluster created in Atlas mongo db and complete the variable inside `.env`
+- a cluster created in Atlas mongo db and complete the variable inside `.env` `DB_SRV`
 
 ### To Run the project follow the next commands
 
@@ -17,17 +22,22 @@ NestJs let us to have a small setup boilerplate to start adding some logic and c
 - run `npm install` from the root project directory
 - And now your services are running maybe in `localhost:3000` if host and ports weren't changed, have some fun!
 
-### Login as a passenger
+### Login users
 
-- username: `paolo.reyes.2911@gmail.com`
-- password: changeIt
+- username: `g.villa@email.com`
+- password: `reset!`
 
-- username: `renzo.rojas@thebeat.co`
-- password: changeIt
+<br>
 
-### Login as an admin
+- username: `j.perez@email.com`
+- password: `reset!`
 
-- username: `admin@thebeat.co`
-- password: changeIt!
+<br>
 
-Give me some stars!
+- username: `lopez@email.com`
+- password: `reset!`
+
+<br>
+
+- username: `g.gar@email.com`
+- password: `reset!`
