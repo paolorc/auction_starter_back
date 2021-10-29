@@ -98,6 +98,7 @@ export class AuctionService {
     return this.auctionModel
       .find(filters)
       .sort({ createdAt: -1 })
+      .populate('owner')
       .populate('winner')
       .populate('appliers')
       .lean()
