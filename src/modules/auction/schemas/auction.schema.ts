@@ -9,6 +9,7 @@ export interface IAuction extends Document {
   title: string;
   description: string;
   category: string;
+  imageUrl?: string;
   owner: Account;
   appliers: Account[];
   showcased: boolean;
@@ -32,6 +33,9 @@ export class Auction {
 
   @Prop()
   category: string;
+
+  @Prop()
+  imageUrl?: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Account' })
   @Type(() => Account)
