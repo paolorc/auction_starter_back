@@ -3,8 +3,6 @@ import { Model } from 'mongoose';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 
-// import { Product } from './interfaces/product.interface';
-// import { CreateProductDTO } from './dto/product.dto';
 import { Account, IAccount } from './schemas/account.schema';
 import { IJWTPayload } from './types/interface/jwtPayload';
 
@@ -42,7 +40,8 @@ export class AccountService {
     const account = await this.accountModel
       .findOne({ 'profile.email': email })
       .select('-password')
-      .lean();
+      .lean()
+      .exec();
 
     if (!account) {
       throw new Error('Invalid Account');
