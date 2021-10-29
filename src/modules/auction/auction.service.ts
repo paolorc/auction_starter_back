@@ -98,6 +98,7 @@ export class AuctionService {
       .find(filters)
       .sort({ createdAt: -1 })
       .populate('winner')
+      .populate('appliers')
       .lean()
       .exec();
   }
